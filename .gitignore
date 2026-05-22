@@ -16,3 +16,6 @@ node_modules
 out/
 tsconfig.tsbuildinfo
 .claude/
+.open-next/
+.dev.vars
+.wrangler/
