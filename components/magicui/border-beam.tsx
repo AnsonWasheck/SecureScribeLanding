@@ -19,7 +19,7 @@ export function BorderBeam({ className, children, duration = 5 }: BorderBeamProp
           animationDuration: `${duration}s`,
           animationTimingFunction: "linear",
           background:
-            "conic-gradient(from 0deg, transparent 0deg, oklch(0.546 0.215 264.6 / 0.9) 20deg, oklch(0.65 0.18 264 / 0.6) 40deg, transparent 60deg)",
+            "conic-gradient(from 0deg, transparent 0deg, oklch(0.511 0.097 184 / 0.55) 22deg, oklch(0.66 0.08 184 / 0.3) 44deg, transparent 64deg)",
         }}
       />
       {/* Inner card covers the gradient except at the 1px edge */}

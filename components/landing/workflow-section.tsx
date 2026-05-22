@@ -3,50 +3,55 @@ import { ShieldCheck } from "lucide-react"
 
 const steps = [
   {
-    badge: "Capture",
+    badge: "Local capture",
     title: "Capture",
-    description: "Nurse dictates or types a short observation after an interaction — text or voice, on shift.",
+    description:
+      "Nurse enters a short observation, dictated snippet, or event note — text or voice, on shift.",
     card: (
       <div className="rounded-lg border border-border bg-card p-3 text-sm">
-        <p className="mb-1.5 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+        <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-1.5">
           Raw observation
         </p>
-        <p className="leading-relaxed text-foreground">
-          &ldquo;Pt agitated at 14:30, pacing hallway, refused redirection. No aggression. Verbally
-          redirected after 8 min.&rdquo;
+        <p className="text-foreground leading-relaxed">
+          &ldquo;Pt agitated at 14:30, pacing hallway, refused redirection. No aggression. Verbally redirected
+          after 8 min, returned to room.&rdquo;
         </p>
       </div>
     ),
   },
   {
-    badge: "Structure",
-    title: "Structure",
-    description: "SecureScribe organizes the observation into psych-relevant note fields.",
+    badge: "Source-linked",
+    title: "Evidence Packet",
+    description:
+      "Observation is structured into source-linked clinical fields. Every field traces back to the captured note.",
     card: (
       <div className="rounded-lg border border-border bg-card p-3">
-        <p className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+        <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">
           Field types
         </p>
         <div className="flex flex-wrap gap-1.5">
-          {["Observed", "Reported", "Intervention", "Response", "Safety", "Plan / Handoff"].map((t) => (
-            <span
-              key={t}
-              className="inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary"
-            >
-              {t}
-            </span>
-          ))}
+          {["Observed", "Reported", "Denied", "Intervention", "Response", "Safety", "Plan / Handoff"].map(
+            (tag) => (
+              <span
+                key={tag}
+                className="inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary"
+              >
+                {tag}
+              </span>
+            )
+          )}
         </div>
       </div>
     ),
   },
   {
-    badge: "Flag",
-    title: "Flag",
-    description: "Missing safety details and unsupported claims are surfaced for review.",
+    badge: "Needs confirmation",
+    title: "Validation",
+    description:
+      "Missing fields and unsupported claims are flagged. Nothing is assumed — gaps surface for clinician resolution.",
     card: (
       <div className="rounded-lg border border-amber-200 bg-amber-50 p-3">
-        <p className="mb-2 text-xs font-medium uppercase tracking-wide text-amber-700">
+        <p className="text-xs font-medium text-amber-700 uppercase tracking-wide mb-2">
           Flagged for review
         </p>
         <div className="space-y-1">
@@ -61,12 +66,13 @@ const steps = [
     ),
   },
   {
-    badge: "Review",
-    title: "Review",
-    description: "Clinician edits, confirms, and signs. Nothing auto-files.",
+    badge: "Clinician-in-the-loop",
+    title: "Clinician Review",
+    description:
+      "Clinician reviews every section, edits freely, and confirms high-risk fields before the note can advance.",
     card: (
       <div className="rounded-lg border border-border bg-card p-3">
-        <p className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+        <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">
           Review checklist
         </p>
         <div className="space-y-1.5">
@@ -76,7 +82,7 @@ const steps = [
             "Intervention documented — confirmed",
           ].map((item) => (
             <div key={item} className="flex items-center gap-2">
-              <div className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded border-2 border-primary">
+              <div className="h-3.5 w-3.5 shrink-0 rounded border-2 border-primary flex items-center justify-center">
                 <div className="h-1.5 w-1.5 rounded-sm bg-primary" />
               </div>
               <span className="text-xs text-foreground">{item}</span>
@@ -87,17 +93,21 @@ const steps = [
     ),
   },
   {
-    badge: "Handoff",
-    title: "Handoff",
-    description: "Shift-ready summary highlights risks, interventions, PRNs, and follow-ups.",
+    badge: "Not auto-filed",
+    title: "Handoff / EHR-ready Note",
+    description:
+      "Clinician attests and the note becomes export-ready. EHR writeback only through approved workflows after sign-off.",
     card: (
       <div className="rounded-lg border border-border bg-card p-3">
-        <p className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+        <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-2">
           SBAR handoff status
         </p>
         <div className="grid grid-cols-2 gap-1.5">
           {["Situation", "Background", "Assessment", "Recommendation"].map((item) => (
-            <div key={item} className="flex items-center gap-1.5 rounded bg-muted px-2 py-1">
+            <div
+              key={item}
+              className="flex items-center gap-1.5 rounded bg-muted px-2 py-1"
+            >
               <div className="h-1.5 w-1.5 rounded-full bg-primary" />
               <span className="text-xs text-foreground">{item}</span>
             </div>
@@ -111,40 +121,37 @@ const steps = [
 
 export function WorkflowSection() {
   return (
-    <section id="workflow" className="border-y border-white/10 bg-white/[0.02] py-20 md:py-28">
+    <section id="workflow" className="py-14 md:py-20 bg-muted/20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-[5fr_7fr] lg:gap-16">
+
           {/* Left: sticky heading */}
           <div className="mb-12 lg:mb-0">
-            <div className="space-y-6 lg:sticky lg:top-28">
+            <div className="lg:sticky lg:top-28 space-y-6">
               <div className="space-y-4">
-                <p className="text-xs font-medium uppercase tracking-[0.2em] text-teal-300/80">
-                  How it works
-                </p>
-                <h2 className="text-balance text-3xl font-semibold tracking-tight text-white md:text-4xl">
-                  From observation to reviewed handoff
+                <h2 className="text-3xl font-semibold text-foreground text-balance md:text-4xl">
+                  From shift context to reviewable documentation
                 </h2>
-                <p className="text-base leading-relaxed text-slate-400">
-                  A review-first pathway that keeps clinicians in control at every stage. Nothing
-                  advances without confirmation.
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  A review-first documentation pathway that keeps clinician control at every stage. Nothing advances without confirmation.
                 </p>
               </div>
 
-              <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4">
-                <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-teal-300" />
+              {/* Governance note */}
+              <div className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+                <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 <div>
-                  <p className="text-sm font-medium text-white">No auto-filing</p>
-                  <p className="mt-0.5 text-xs leading-relaxed text-slate-400">
-                    Clinicians stay in control. SecureScribe drafts, flags, and organizes — humans
-                    review and sign before anything reaches the chart.
+                  <p className="text-sm font-medium text-foreground">No auto-filing</p>
+                  <p className="mt-0.5 text-xs text-muted-foreground leading-relaxed">
+                    EHR export only happens through approved workflows after clinician review and sign-off. SecureScribe does not file notes automatically.
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right: timeline in a white product panel */}
-          <div className="rounded-2xl border border-white/10 bg-white p-6 shadow-2xl md:p-8">
+          {/* Right: Aceternity timeline */}
+          <div>
             <Timeline steps={steps} />
           </div>
         </div>

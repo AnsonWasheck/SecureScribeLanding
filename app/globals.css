@@ -5,58 +5,58 @@
 
 :root {
   /* ─── Page surfaces ─── */
-  --background: oklch(0.984 0.006 225);      /* #F8FBFF — pale clinical blue-white */
-  --foreground: oklch(0.140 0.032 243);      /* #07182F — deep navy */
+  --background: oklch(0.984 0.003 106);      /* #FAFAF7 — warm clinical off-white */
+  --foreground: oklch(0.208 0.042 265.8);    /* #0F172A — dark navy / slate-900 */
 
   /* ─── Card / popover ─── */
   --card: oklch(1 0 0);                      /* #FFFFFF — white */
-  --card-foreground: oklch(0.140 0.032 243);
+  --card-foreground: oklch(0.208 0.042 265.8);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.140 0.032 243);
+  --popover-foreground: oklch(0.208 0.042 265.8);
 
-  /* ─── Primary CTA / accent blue ─── */
-  --primary: oklch(0.546 0.215 264.6);       /* #2563EB — medical blue */
-  --primary-foreground: oklch(1 0 0);
+  /* ─── Primary CTA / accent — muted clinical teal ─── */
+  --primary: oklch(0.511 0.097 184);         /* #0F766E — teal-700 */
+  --primary-foreground: oklch(0.99 0.005 106);
 
-  /* ─── Secondary surface ─── */
-  --secondary: oklch(0.965 0.013 222);       /* #EEF6FF — light blue tint */
-  --secondary-foreground: oklch(0.140 0.032 243);
+  /* ─── Secondary surface — subtle slate/green tint ─── */
+  --secondary: oklch(0.962 0.008 174);       /* #EEF4F1 — pale clinical green */
+  --secondary-foreground: oklch(0.208 0.042 265.8);
 
   /* ─── Muted surface & text ─── */
-  --muted: oklch(0.965 0.013 222);           /* secondary surface for alternating sections */
-  --muted-foreground: oklch(0.585 0.024 218); /* #7A8B99 — blue-gray secondary text */
+  --muted: oklch(0.968 0.006 170);           /* #F3F6F4 — section tint */
+  --muted-foreground: oklch(0.498 0.034 257); /* #475569 / #64748B — muted slate */
 
-  /* ─── Accent (same as primary) ─── */
-  --accent: oklch(0.546 0.215 264.6);
-  --accent-foreground: oklch(1 0 0);
+  /* ─── Accent — light teal tint for hover/selected ─── */
+  --accent: oklch(0.948 0.018 178);          /* faint teal surface */
+  --accent-foreground: oklch(0.511 0.097 184);
 
   /* ─── Destructive ─── */
-  --destructive: oklch(0.530 0.220 27);      /* red, kept for clinical critical flags */
+  --destructive: oklch(0.530 0.190 27);      /* restrained red for critical safety flags */
   --destructive-foreground: oklch(1 0 0);
 
   /* ─── Borders & inputs ─── */
-  --border: oklch(0.906 0.022 221);          /* #D8E7F5 — soft blue-gray border */
-  --input: oklch(0.920 0.018 221);
-  --ring: oklch(0.546 0.215 264.6);
+  --border: oklch(0.929 0.013 255.5);        /* #E2E8F0 — slate-200 */
+  --input: oklch(0.929 0.013 255.5);
+  --ring: oklch(0.511 0.097 184);
 
-  /* ─── Charts ─── */
-  --chart-1: oklch(0.546 0.215 264.6);
-  --chart-2: oklch(0.60 0.16 220);
-  --chart-3: oklch(0.50 0.12 200);
-  --chart-4: oklch(0.65 0.12 180);
-  --chart-5: oklch(0.45 0.10 240);
+  /* ─── Charts — teal/slate range, no rainbow ─── */
+  --chart-1: oklch(0.511 0.097 184);
+  --chart-2: oklch(0.60 0.07 185);
+  --chart-3: oklch(0.70 0.05 180);
+  --chart-4: oklch(0.498 0.034 257);
+  --chart-5: oklch(0.78 0.04 175);
 
-  --radius: 0.625rem;
+  --radius: 0.75rem;
 
   /* ─── Sidebar ─── */
-  --sidebar: oklch(0.984 0.006 225);
-  --sidebar-foreground: oklch(0.140 0.032 243);
-  --sidebar-primary: oklch(0.546 0.215 264.6);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.965 0.013 222);
-  --sidebar-accent-foreground: oklch(0.140 0.032 243);
-  --sidebar-border: oklch(0.906 0.022 221);
-  --sidebar-ring: oklch(0.546 0.215 264.6);
+  --sidebar: oklch(0.984 0.003 106);
+  --sidebar-foreground: oklch(0.208 0.042 265.8);
+  --sidebar-primary: oklch(0.511 0.097 184);
+  --sidebar-primary-foreground: oklch(0.99 0.005 106);
+  --sidebar-accent: oklch(0.962 0.008 174);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.8);
+  --sidebar-border: oklch(0.929 0.013 255.5);
+  --sidebar-ring: oklch(0.511 0.097 184);
 }
 
 .dark {
@@ -140,33 +140,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply text-slate-200 antialiased;
-    background-color: #060c18;
+    @apply bg-background text-foreground;
   }
-}
-
-/* ─── Redesign: dark medtech utilities ─── */
-.bg-grid-dark {
-  background-image:
-    linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
-
-@keyframes aurora-drift {
-  0%   { transform: translate(-8%, -6%) rotate(0deg) scale(1); }
-  50%  { transform: translate(8%, 6%) rotate(180deg) scale(1.15); }
-  100% { transform: translate(-8%, -6%) rotate(360deg) scale(1); }
-}
-
-@keyframes gradient-pan {
-  0%, 100% { background-position: 0% 50%; }
-  50%      { background-position: 100% 50%; }
-}
-
-.animate-gradient-text {
-  background-size: 200% auto;
-  animation: gradient-pan 6s ease infinite;
 }
 
 /* ─── Animated beam on SVG workflow paths ─── */
