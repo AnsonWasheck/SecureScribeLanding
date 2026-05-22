@@ -1,82 +1,63 @@
-import { BorderBeam } from "@/components/magicui/border-beam"
-import { Check, Stethoscope, ServerCog } from "lucide-react"
+import { ShieldOff, Pill, Activity, FileX } from "lucide-react"
 
-const clinical = [
-  "No auto-filed notes",
-  "Clinician review required",
-  "High-risk fields require confirmation",
-  "Observed, Reported, Denied, Intervention, Response, Safety, Medication / PRN, Plan / Handoff, and Needs Confirmation remain separated",
+const guardrails = [
+  { icon: ShieldOff, label: "No autonomous diagnosis" },
+  { icon: Pill, label: "No medication recommendations" },
+  { icon: Activity, label: "No autonomous suicide-risk scoring" },
+  { icon: FileX, label: "No auto-filed notes" },
 ]
 
-const it = [
+const itPoints = [
   "Local / client-side processing where feasible",
-  "Optional cloud finalization only from minimized structured evidence packets when governance allows",
-  "Raw encounter audio is not the default workflow",
+  "Minimized structured evidence packets",
+  "Raw encounter audio is not the default",
   "Designed to reduce unnecessary third-party exposure",
-  "Audit-ready workflow assumptions",
+  "No regulatory certification claims",
 ]
-
-function Item({ text }: { text: string }) {
-  return (
-    <li className="flex items-start gap-2.5">
-      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-secondary text-primary">
-        <Check className="h-3 w-3" />
-      </span>
-      <span className="text-sm leading-relaxed text-foreground">{text}</span>
-    </li>
-  )
-}
 
 export function GovernanceSection() {
   return (
-    <section id="governance" className="py-16 md:py-24">
+    <section id="governance" className="bg-muted/40 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
+        <div className="max-w-2xl">
           <h2 className="text-3xl font-semibold text-foreground text-balance md:text-4xl">
-            Sensitive behavioral-health data stays controlled, reviewable, and governed
+            Review-first by design
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            SecureScribe is designed for settings where behavioral-health documentation carries higher sensitivity. The workflow minimizes unnecessary data movement, keeps review in the hands of clinicians, and gives IT/compliance a clear governance path.
-          </p>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {/* Panel 1 — clinical teams, with the one subtle border beam */}
-          <BorderBeam duration={9} className="shadow-sm">
-            <div className="flex h-full flex-col p-6 sm:p-8">
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary text-primary">
-                  <Stethoscope className="h-5 w-5" />
-                </div>
-                <h3 className="text-lg font-semibold text-foreground">For clinical teams</h3>
-              </div>
-              <ul className="mt-5 space-y-3.5">
-                {clinical.map((t) => (
-                  <Item key={t} text={t} />
-                ))}
-              </ul>
+        {/* Guardrail pills */}
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {guardrails.map(({ icon: Icon, label }) => (
+            <div
+              key={label}
+              className="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 shadow-sm"
+            >
+              <Icon className="h-4 w-4 shrink-0 text-primary" />
+              <span className="text-sm font-medium text-foreground">{label}</span>
             </div>
-          </BorderBeam>
-
-          {/* Panel 2 — IT and compliance */}
-          <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary text-primary">
-                <ServerCog className="h-5 w-5" />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground">For IT and compliance review</h3>
-            </div>
-            <ul className="mt-5 space-y-3.5">
-              {it.map((t) => (
-                <Item key={t} text={t} />
-              ))}
-            </ul>
-          </div>
+          ))}
         </div>
 
-        <p className="mt-8 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          SecureScribe supports your governance review; it does not claim regulatory certification.
+        <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground">
+          SecureScribe keeps clinical decisions with clinicians. High-risk sections require explicit
+          confirmation, and EHR export or writeback only happens through approved workflows after
+          review and attestation.
         </p>
+
+        {/* IT / compliance secondary panel */}
+        <div className="mt-8 rounded-2xl border border-border bg-card p-6 shadow-sm">
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+            For IT / compliance review
+          </h3>
+          <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2.5">
+            {itPoints.map((p) => (
+              <li key={p} className="flex items-center gap-2 text-sm text-foreground">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                {p}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   )

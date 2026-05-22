@@ -16,10 +16,13 @@ export function Hero() {
           <div className="space-y-7">
             <div className="space-y-5">
               <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-                Built for psych-nursing documentation, safety events, and shift handoffs
+                Psych-nursing documentation · Safety-event review · Shift handoffs
               </p>
               <h1 className="text-4xl font-semibold leading-tight text-foreground text-balance md:text-5xl lg:text-[2.85rem]">
-                Clinical documentation infrastructure for inpatient behavioral health
+                Clinical documentation infrastructure for{" "}
+                <span className="rounded-md bg-secondary px-1.5 text-primary [-webkit-box-decoration-break:clone] [box-decoration-break:clone]">
+                  inpatient behavioral health
+                </span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
                 SecureScribe helps psychiatric nursing teams turn short observations, safety-relevant events, and shift context into structured, reviewable documentation — without removing clinician judgment.
@@ -39,7 +42,7 @@ export function Hero() {
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button size="lg" asChild className="sm:w-auto w-full">
-                <a href="#cta">Request a pilot</a>
+                <a href="#pilot">Request a pilot</a>
               </Button>
               <Button size="lg" variant="outline" asChild className="sm:w-auto w-full">
                 <a href="#workflow">View clinical workflow</a>
@@ -52,8 +55,12 @@ export function Hero() {
           </div>
 
           {/* Right column: Safari mockup */}
-          <div>
-            <Safari url="app.securescribe.health" className="w-full shadow-md">
+          <div className="relative">
+            <div className="pointer-events-none absolute -inset-4 -z-10 rounded-3xl bg-primary/5 blur-2xl" />
+            <Safari
+              url="app.securescribe.health"
+              className="w-full shadow-xl ring-1 ring-border/60"
+            >
               <ProductMockup />
             </Safari>
           </div>

@@ -3,18 +3,18 @@ import { FileText, Users, ShieldAlert } from "lucide-react"
 const cards = [
   {
     icon: FileText,
-    title: "Narrative-heavy by necessity",
-    body: "Behavioral observations, patient statements, and observation-level rationale don't fit checkboxes — they have to be written, carefully.",
-  },
-  {
-    icon: Users,
-    title: "Shift-based and team-driven",
-    body: "The same context is re-entered and handed off every shift, across a team, without improving the underlying record.",
+    title: "Narrative-heavy",
+    body: "Observations, patient statements, and rationale don't fit checkboxes — they have to be written, carefully.",
   },
   {
     icon: ShieldAlert,
-    title: "Safety-sensitive content",
-    body: "Medication refusals, PRN responses, de-escalation, and safety reassessments carry clinical and legal weight when gaps appear.",
+    title: "Safety-sensitive",
+    body: "Medication refusals, PRN responses, de-escalation, and reassessments carry clinical and legal weight.",
+  },
+  {
+    icon: Users,
+    title: "Shift-based",
+    body: "The same context is re-entered and handed off every shift, across a team.",
   },
 ]
 

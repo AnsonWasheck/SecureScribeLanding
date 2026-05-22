@@ -8,7 +8,6 @@ const navLinks = [
   { href: "#problem", label: "Problem" },
   { href: "#workflow", label: "Workflow" },
   { href: "#pilot", label: "Pilot" },
-  { href: "#governance", label: "Governance" },
   { href: "#faq", label: "FAQ" },
 ]
 
@@ -40,7 +39,7 @@ export function Header() {
               <a href="#workflow">View clinical workflow</a>
             </Button>
             <Button size="sm" asChild>
-              <a href="#cta">Request a pilot</a>
+              <a href="#pilot">Request a pilot</a>
             </Button>
           </div>
 
@@ -71,7 +70,7 @@ export function Header() {
                   <a href="#workflow">View clinical workflow</a>
                 </Button>
                 <Button size="sm" asChild>
-                  <a href="#cta">Request a pilot</a>
+                  <a href="#pilot">Request a pilot</a>
                 </Button>
               </div>
             </nav>

@@ -2,43 +2,14 @@
 
 import { AlertCircle, Clock, FileText, ShieldAlert, CheckCircle2, Link } from "lucide-react"
 import { AnimatedList } from "@/components/magicui/animated-list"
+import { BorderBeam } from "@/components/magicui/border-beam"
 
 const shiftEvents = [
-  {
-    time: "1342",
-    type: "Medication refusal",
-    icon: AlertCircle,
-    color: "text-amber-600",
-    dot: "bg-amber-400",
-  },
-  {
-    time: "1318",
-    type: "PRN response pending",
-    icon: Clock,
-    color: "text-slate-600",
-    dot: "bg-slate-400",
-  },
-  {
-    time: "1247",
-    type: "De-escalation follow-up",
-    icon: ShieldAlert,
-    color: "text-amber-600",
-    dot: "bg-amber-400",
-  },
-  {
-    time: "1130",
-    type: "Safety reassessment",
-    icon: ShieldAlert,
-    color: "text-red-700",
-    dot: "bg-red-500",
-  },
-  {
-    time: "0915",
-    type: "Handoff item generated",
-    icon: FileText,
-    color: "text-primary",
-    dot: "bg-primary",
-  },
+  { time: "07:20", type: "Group participation declined", icon: AlertCircle, color: "text-slate-600", dot: "bg-slate-400" },
+  { time: "09:15", type: "Medication refusal captured", icon: AlertCircle, color: "text-amber-600", dot: "bg-amber-400" },
+  { time: "11:40", type: "PRN response pending", icon: Clock, color: "text-slate-600", dot: "bg-slate-400" },
+  { time: "13:42", type: "Safety reassessment", icon: ShieldAlert, color: "text-red-700", dot: "bg-red-500" },
+  { time: "16:10", type: "Handoff item generated", icon: FileText, color: "text-primary", dot: "bg-primary" },
 ]
 
 function ShiftEventItem({ time, type, icon: Icon, color, dot }: (typeof shiftEvents)[0]) {
@@ -124,13 +95,15 @@ export function ProductMockup() {
           ))}
         </div>
 
-        {/* Status footer */}
-        <div className="mt-auto flex items-center justify-between rounded-md bg-muted/30 px-2.5 py-1.5">
-          <span className="text-[9px] font-medium text-foreground">Review required</span>
-          <span className="rounded bg-amber-100 px-1.5 py-0.5 text-[8px] font-semibold text-amber-700">
-            Not filed
-          </span>
-        </div>
+        {/* Status footer — the one animated-border card */}
+        <BorderBeam duration={10} className="mt-auto">
+          <div className="flex items-center justify-between px-2.5 py-1.5">
+            <span className="text-[9px] font-medium text-foreground">Review required before filing</span>
+            <span className="rounded bg-amber-100 px-1.5 py-0.5 text-[8px] font-semibold text-amber-700">
+              Not filed
+            </span>
+          </div>
+        </BorderBeam>
       </div>
 
       {/* ── Right: Evidence packet + confirmations ── */}
@@ -171,7 +144,7 @@ export function ProductMockup() {
             <span className="text-[9px] font-medium text-amber-600">Needs confirmation</span>
           </div>
           <div className="flex flex-wrap gap-1">
-            {["Education provided", "Side effects assessed", "Provider notified"].map((item) => (
+            {["Education provided", "Side effects assessed", "Provider notified", "Safety reassessment"].map((item) => (
               <span
                 key={item}
                 className="rounded-full border border-amber-200 bg-amber-50 px-1.5 py-0.5 text-[9px] text-amber-700"
