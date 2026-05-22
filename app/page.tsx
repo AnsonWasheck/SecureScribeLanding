@@ -1,31 +1,27 @@
 import { Header } from "@/components/landing/header"
 import { Hero } from "@/components/landing/hero"
-import { TractionSection } from "@/components/landing/traction-section"
-import { ProblemSection } from "@/components/landing/problem-section"
+import { TrustStrip } from "@/components/landing/trust-strip"
+import { PainSection } from "@/components/landing/pain-section"
 import { WorkflowSection } from "@/components/landing/workflow-section"
-import { TransformationSection } from "@/components/landing/transformation-section"
-import { ArchitectureSection } from "@/components/landing/architecture-section"
-import { ICPSection } from "@/components/landing/icp-section"
-import { MetricsSection } from "@/components/landing/metrics-section"
-import { FAQSection } from "@/components/landing/faq-section"
-import { CTASection } from "@/components/landing/cta-section"
+import { BentoSection } from "@/components/landing/bento-section"
+import { SecuritySection } from "@/components/landing/security-section"
+import { ComparisonSection } from "@/components/landing/comparison-section"
+import { PilotSection } from "@/components/landing/pilot-section"
 import { Footer } from "@/components/landing/footer"
 
 export default function SecureScribeLanding() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#060c18] text-slate-200">
       <Header />
       <main>
         <Hero />
-        <TractionSection />
-        <ProblemSection />
+        <TrustStrip />
+        <PainSection />
         <WorkflowSection />
-        <TransformationSection />
-        <ArchitectureSection />
-        <ICPSection />
-        <MetricsSection />
-        <FAQSection />
-        <CTASection />
+        <BentoSection />
+        <SecuritySection />
+        <ComparisonSection />
+        <PilotSection />
       </main>
       <Footer />
     </div>

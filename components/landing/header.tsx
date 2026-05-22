@@ -1,76 +1,80 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
 
+const navLinks = [
+  { label: "Product", href: "#product" },
+  { label: "Workflow", href: "#workflow" },
+  { label: "Security", href: "#security" },
+  { label: "Pilot", href: "#pilot" },
+]
+
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [open, setOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <span className="font-semibold text-foreground text-lg tracking-tight">SecureScribe</span>
-          </div>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#060c18]/80 backdrop-blur-md">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          <a href="#top" className="flex items-center gap-2.5">
+            <span className="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-teal-400 to-sky-500 text-[13px] font-bold text-[#060c18]">
+              S
+            </span>
+            <span className="text-[15px] font-semibold tracking-tight text-white">SecureScribe</span>
+          </a>
 
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="#problem" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Problem
-            </a>
-            <a href="#workflow" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Workflow
-            </a>
-            <a href="#governance" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Governance
-            </a>
-            <a href="#faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              FAQ
-            </a>
+          <nav className="hidden items-center gap-8 md:flex">
+            {navLinks.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="text-sm text-slate-300 transition-colors hover:text-white"
+              >
+                {l.label}
+              </a>
+            ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost" size="sm" asChild>
-              <a href="#workflow">See example workflow</a>
-            </Button>
-            <Button size="sm" asChild>
-              <a href="#cta">Request a pilot</a>
-            </Button>
+          <div className="hidden md:block">
+            <a
+              href="#pilot"
+              className="inline-flex items-center rounded-lg bg-white px-4 py-2 text-sm font-semibold text-[#0b1220] shadow-sm transition hover:bg-slate-100"
+            >
+              Request a pilot
+            </a>
           </div>
 
           <button
-            className="md:hidden p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 text-slate-200 md:hidden"
+            onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
+            aria-expanded={open}
           >
-            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
 
-        {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
-            <nav className="flex flex-col gap-4">
-              <a href="#problem" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Problem
+        {open && (
+          <div className="border-t border-white/10 py-4 md:hidden">
+            <nav className="flex flex-col gap-1">
+              {navLinks.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="rounded-md px-2 py-2.5 text-sm text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+                >
+                  {l.label}
+                </a>
+              ))}
+              <a
+                href="#pilot"
+                onClick={() => setOpen(false)}
+                className="mt-2 inline-flex items-center justify-center rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-[#0b1220]"
+              >
+                Request a pilot
               </a>
-              <a href="#workflow" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Workflow
-              </a>
-              <a href="#governance" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Governance
-              </a>
-              <a href="#faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                FAQ
-              </a>
-              <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                <Button variant="ghost" size="sm" className="justify-start" asChild>
-                  <a href="#workflow">See example workflow</a>
-                </Button>
-                <Button size="sm" asChild>
-                  <a href="#cta">Request a pilot</a>
-                </Button>
-              </div>
             </nav>
           </div>
         )}
