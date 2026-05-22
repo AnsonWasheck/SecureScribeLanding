@@ -29,8 +29,8 @@ const shiftEvents = [
     time: "1130",
     type: "Safety reassessment",
     icon: ShieldAlert,
-    color: "text-primary",
-    dot: "bg-primary/70",
+    color: "text-red-700",
+    dot: "bg-red-500",
   },
   {
     time: "0915",

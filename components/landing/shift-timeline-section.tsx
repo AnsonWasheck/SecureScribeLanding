@@ -7,7 +7,7 @@ const events = [
   { time: "1342", label: "Medication refusal captured", icon: Pill, tint: "text-primary", dot: "bg-primary/70" },
   { time: "1318", label: "PRN response pending", icon: Clock, tint: "text-slate-600", dot: "bg-slate-400" },
   { time: "1247", label: "De-escalation follow-up needed", icon: ShieldAlert, tint: "text-amber-600", dot: "bg-amber-400" },
-  { time: "1130", label: "Safety reassessment needs confirmation", icon: CheckCircle2, tint: "text-primary", dot: "bg-primary/70" },
+  { time: "1130", label: "Safety reassessment needs confirmation", icon: CheckCircle2, tint: "text-red-700", dot: "bg-red-500" },
   { time: "0915", label: "Handoff item generated", icon: ArrowRightLeft, tint: "text-slate-600", dot: "bg-slate-400" },
 ]
 

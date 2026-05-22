@@ -28,7 +28,7 @@ export function Timeline({ steps, className }: TimelineProps) {
           style={{
             height: "6rem",
             background:
-              "linear-gradient(to bottom, transparent 0%, oklch(0.511 0.097 184 / 0.7) 40%, oklch(0.6 0.08 184 / 0.5) 60%, transparent 100%)",
+              "linear-gradient(to bottom, transparent 0%, oklch(0.546 0.215 264.6 / 0.75) 40%, oklch(0.685 0.145 232 / 0.5) 60%, transparent 100%)",
             animation: "trace-beam 5.5s ease-in-out infinite",
           }}
         />

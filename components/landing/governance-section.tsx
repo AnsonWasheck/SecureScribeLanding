@@ -47,7 +47,7 @@ export function GovernanceSection() {
             </ul>
           </div>
 
-          {/* The one card with the subtle teal border beam */}
+          {/* The one card with the subtle blue border beam */}
           <BorderBeam duration={9} className="shadow-sm">
             <div className="flex h-full flex-col justify-center gap-4 p-6 sm:p-8">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-secondary text-primary">
