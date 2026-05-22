@@ -1,0 +1,80 @@
+"use client"
+
+import { Button } from "@/components/ui/button"
+import { Menu, X } from "lucide-react"
+import { useState } from "react"
+
+export function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center">
+            <span className="font-semibold text-foreground text-lg tracking-tight">SecureScribe</span>
+          </div>
+
+          <nav className="hidden md:flex items-center gap-8">
+            <a href="#problem" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Problem
+            </a>
+            <a href="#workflow" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Workflow
+            </a>
+            <a href="#governance" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Governance
+            </a>
+            <a href="#faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              FAQ
+            </a>
+          </nav>
+
+          <div className="hidden md:flex items-center gap-3">
+            <Button variant="ghost" size="sm" asChild>
+              <a href="#workflow">See example workflow</a>
+            </Button>
+            <Button size="sm" asChild>
+              <a href="#cta">Request a pilot</a>
+            </Button>
+          </div>
+
+          <button
+            className="md:hidden p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+
+        {mobileMenuOpen && (
+          <div className="md:hidden py-4 border-t border-border">
+            <nav className="flex flex-col gap-4">
+              <a href="#problem" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Problem
+              </a>
+              <a href="#workflow" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Workflow
+              </a>
+              <a href="#governance" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Governance
+              </a>
+              <a href="#faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                FAQ
+              </a>
+              <div className="flex flex-col gap-2 pt-4 border-t border-border">
+                <Button variant="ghost" size="sm" className="justify-start" asChild>
+                  <a href="#workflow">See example workflow</a>
+                </Button>
+                <Button size="sm" asChild>
+                  <a href="#cta">Request a pilot</a>
+                </Button>
+              </div>
+            </nav>
+          </div>
+        )}
+      </div>
+    </header>
+  )
+}
