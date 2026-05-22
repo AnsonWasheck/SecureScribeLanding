@@ -5,6 +5,7 @@ import { ProductPreviewSection } from "@/components/landing/product-preview-sect
 import { ProblemSection } from "@/components/landing/problem-section"
 import { WorkflowSection } from "@/components/landing/workflow-section"
 import { TransformationSection } from "@/components/landing/transformation-section"
+import { RealitiesSection } from "@/components/landing/realities-section"
 import { GovernanceSection } from "@/components/landing/governance-section"
 import { CTASection } from "@/components/landing/cta-section"
 import { FAQSection } from "@/components/landing/faq-section"
@@ -21,6 +22,7 @@ export default function SecureScribeLanding() {
         <ProblemSection />
         <WorkflowSection />
         <TransformationSection />
+        <RealitiesSection />
         <GovernanceSection />
         <CTASection />
         <FAQSection />
