@@ -53,9 +53,9 @@ function ShiftEventItem({ time, type, icon: Icon, color, dot }: (typeof shiftEve
 
 export function ProductMockup() {
   return (
-    <div className="grid h-full grid-cols-7 divide-x divide-border text-left">
+    <div className="grid h-full grid-cols-1 divide-y divide-border text-left sm:grid-cols-7 sm:divide-x sm:divide-y-0">
       {/* ── Left rail: Shift timeline ── */}
-      <div className="col-span-2 flex flex-col gap-2.5 bg-muted/20 p-3">
+      <div className="flex flex-col gap-2.5 bg-muted/20 p-3 sm:col-span-2">
         <div className="flex items-center gap-1.5">
           <Clock className="h-3 w-3 text-muted-foreground" />
           <span className="text-[9px] font-semibold uppercase tracking-wider text-muted-foreground">
@@ -80,7 +80,7 @@ export function ProductMockup() {
       </div>
 
       {/* ── Center: Observation → Structured draft ── */}
-      <div className="col-span-3 flex flex-col gap-3 p-3">
+      <div className="flex flex-col gap-3 p-3 sm:col-span-3">
         {/* Raw captured observation */}
         <div className="rounded-md border border-border bg-muted/20 p-2.5">
           <div className="mb-1 flex items-center gap-1.5">
@@ -133,7 +133,7 @@ export function ProductMockup() {
       </div>
 
       {/* ── Right: Evidence packet + confirmations ── */}
-      <div className="col-span-2 flex flex-col gap-3 p-3">
+      <div className="flex flex-col gap-3 p-3 sm:col-span-2">
         <div className="flex items-center gap-1.5">
           <FileText className="h-3 w-3 text-muted-foreground" />
           <span className="text-[9px] font-semibold uppercase tracking-wider text-muted-foreground">
