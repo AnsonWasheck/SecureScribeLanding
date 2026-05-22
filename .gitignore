@@ -19,3 +19,4 @@ tsconfig.tsbuildinfo
 .open-next/
 .dev.vars
 .wrangler/
+pnpm-workspace.yaml
