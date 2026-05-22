@@ -15,6 +15,9 @@ export function Hero() {
           {/* Left column */}
           <div className="space-y-7">
             <div className="space-y-5">
+              <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+                Built for psych-nursing documentation, safety events, and shift handoffs
+              </p>
               <h1 className="text-4xl font-semibold leading-tight text-foreground text-balance md:text-5xl lg:text-[2.85rem]">
                 Clinical documentation infrastructure for inpatient behavioral health
               </h1>
@@ -23,12 +26,23 @@ export function Hero() {
               </p>
             </div>
 
+            <div className="flex flex-wrap gap-2">
+              {["Shift documentation", "Safety-event review", "Handoff readiness"].map((chip) => (
+                <span
+                  key={chip}
+                  className="inline-flex items-center rounded-full border border-border bg-secondary px-3 py-1 text-sm font-medium text-foreground"
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
+
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button size="lg" asChild className="sm:w-auto w-full">
                 <a href="#cta">Request a pilot</a>
               </Button>
               <Button size="lg" variant="outline" asChild className="sm:w-auto w-full">
-                <a href="#workflow">See example workflow</a>
+                <a href="#workflow">View clinical workflow</a>
               </Button>
             </div>
 

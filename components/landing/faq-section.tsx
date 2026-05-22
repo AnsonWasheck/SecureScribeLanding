@@ -8,7 +8,7 @@ import {
 const faqs = [
   {
     q: "Is SecureScribe an ambient therapy-session recorder?",
-    a: "No. The first workflow is short observation capture, event snippets, shift documentation, and reviewable handoff support. Full-session recording is not the default.",
+    a: "No. The first workflow is short observation capture, event snippets, shift documentation, and reviewable handoff support. Full-session recording is not the default product experience.",
   },
   {
     q: "Does SecureScribe replace clinician judgment?",
@@ -16,15 +16,19 @@ const faqs = [
   },
   {
     q: "Does it auto-file notes into the EHR?",
-    a: "No. The product is review-first. EHR export or writeback only happens through approved workflows after clinician review.",
+    a: "No. SecureScribe is review-first. EHR export or writeback only happens through approved workflows after clinician review and attestation.",
   },
   {
-    q: "Why behavioral health first?",
-    a: "Behavioral-health documentation is narrative-heavy, sensitive, team-based, and often shift-driven. Generic ambient scribe workflows do not fully match these needs.",
+    q: "Who is this built for first?",
+    a: "Inpatient psychiatric nursing teams and freestanding behavioral-health facilities where documentation is shift-based, narrative-heavy, safety-sensitive, and team-driven.",
   },
   {
-    q: "What makes SecureScribe different from a generic AI scribe?",
+    q: "What makes it different from a generic AI scribe?",
     a: "SecureScribe focuses on psych-nursing workflows, safety-event memory, evidence packets, missing-field prompts, reviewability, handoff support, and governance fit.",
+  },
+  {
+    q: "What should a pilot measure?",
+    a: "Documentation time, edit burden, missing safety-field completeness, high-risk attestation, handoff completion, nurse willingness to continue, and manager-confirmed handoff quality.",
   },
 ]
 

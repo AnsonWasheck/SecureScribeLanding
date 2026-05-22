@@ -1,42 +1,39 @@
-import { FileText, ShieldAlert, Repeat } from "lucide-react"
+import { FileText, Users, ShieldAlert } from "lucide-react"
 
 const cards = [
   {
     icon: FileText,
-    title: "Narrative-heavy shift context",
-    body: "Behavioral observations, patient statements, and observation-level rationale don't fit tidy checkboxes. They have to be written, and written carefully.",
+    title: "Narrative-heavy by necessity",
+    body: "Behavioral observations, patient statements, and observation-level rationale don't fit checkboxes — they have to be written, carefully.",
+  },
+  {
+    icon: Users,
+    title: "Shift-based and team-driven",
+    body: "The same context is re-entered and handed off every shift, across a team, without improving the underlying record.",
   },
   {
     icon: ShieldAlert,
-    title: "Safety-sensitive documentation",
-    body: "Medication refusals, PRN responses, and de-escalation events carry clinical and legal weight. Gaps and unsupported claims are real risks.",
-  },
-  {
-    icon: Repeat,
-    title: "Repetitive handoff burden",
-    body: "The same context is re-entered across notes and handoffs every shift, pulling time away from patients without improving the record.",
+    title: "Safety-sensitive content",
+    body: "Medication refusals, PRN responses, de-escalation, and safety reassessments carry clinical and legal weight when gaps appear.",
   },
 ]
 
 export function ProblemSection() {
   return (
-    <section id="problem" className="py-16 md:py-24">
+    <section id="problem" className="bg-muted/40 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-semibold text-foreground text-balance md:text-4xl">
             Psychiatric documentation is not generic charting
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-            Inpatient behavioral-health documentation is repeated, narrative-heavy, safety-sensitive, and shift-based — a different problem than ambient visit notes.
+          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+            Inpatient behavioral-health teams are not documenting one clean visit at a time. They are managing repeated observations, medication refusals, PRN responses, safety reassessments, de-escalation events, and shift-to-shift handoffs across a team.
           </p>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {cards.map(({ icon: Icon, title, body }) => (
-            <div
-              key={title}
-              className="rounded-2xl border border-border bg-card p-6 shadow-sm"
-            >
+            <div key={title} className="rounded-2xl border border-border bg-card p-6 shadow-sm">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-primary">
                 <Icon className="h-5 w-5" />
               </div>

@@ -4,6 +4,14 @@ import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
 
+const navLinks = [
+  { href: "#problem", label: "Problem" },
+  { href: "#workflow", label: "Workflow" },
+  { href: "#pilot", label: "Pilot" },
+  { href: "#governance", label: "Governance" },
+  { href: "#faq", label: "FAQ" },
+]
+
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -16,23 +24,20 @@ export function Header() {
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#problem" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Problem
-            </a>
-            <a href="#workflow" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Workflow
-            </a>
-            <a href="#governance" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Governance
-            </a>
-            <a href="#faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              FAQ
-            </a>
+            {navLinks.map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {label}
+              </a>
+            ))}
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
             <Button variant="ghost" size="sm" asChild>
-              <a href="#workflow">See example workflow</a>
+              <a href="#workflow">View clinical workflow</a>
             </Button>
             <Button size="sm" asChild>
               <a href="#cta">Request a pilot</a>
@@ -51,21 +56,19 @@ export function Header() {
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <nav className="flex flex-col gap-4">
-              <a href="#problem" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Problem
-              </a>
-              <a href="#workflow" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Workflow
-              </a>
-              <a href="#governance" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Governance
-              </a>
-              <a href="#faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                FAQ
-              </a>
+              {navLinks.map(({ href, label }) => (
+                <a
+                  key={href}
+                  href={href}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {label}
+                </a>
+              ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
                 <Button variant="ghost" size="sm" className="justify-start" asChild>
-                  <a href="#workflow">See example workflow</a>
+                  <a href="#workflow">View clinical workflow</a>
                 </Button>
                 <Button size="sm" asChild>
                   <a href="#cta">Request a pilot</a>

@@ -87,10 +87,11 @@ export function ProductMockup() {
             <span className="text-[9px] font-semibold uppercase tracking-wider text-muted-foreground">
               Captured observation
             </span>
-            <span className="rounded bg-muted px-1 py-px text-[8px] text-muted-foreground">1342</span>
+            <span className="rounded bg-primary/10 px-1 py-px text-[8px] font-medium text-primary">Local capture</span>
+            <span className="ml-auto rounded bg-muted px-1 py-px text-[8px] text-muted-foreground">1342</span>
           </div>
           <p className="text-[10px] italic leading-relaxed text-foreground/80">
-            {`"Patient declined scheduled Lexapro. Stated: 'It makes me feel weird.' Remained in room after group."`}
+            {`"Patient declined scheduled Lexapro and stated, 'It makes me feel weird.' Remained in room after group."`}
           </p>
         </div>
 
@@ -189,6 +190,9 @@ export function ProductMockup() {
               Clinician review required before EHR submission
             </p>
           </div>
+          <span className="mt-1.5 inline-flex rounded bg-primary/10 px-1.5 py-px text-[8px] font-medium text-primary">
+            Clinician attestation required
+          </span>
         </div>
       </div>
     </div>

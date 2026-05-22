@@ -12,7 +12,7 @@ export function CTASection() {
               Pilot SecureScribe on one behavioral-health unit
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              Start with one unit, two or three high-frequency workflows, and a clear baseline. SecureScribe is designed to prove value through real psych-nursing documentation patterns before expanding.
+              Start with one unit, two or three high-frequency documentation workflows, and a clear baseline. SecureScribe is designed to prove value through real psych-nursing documentation patterns before expanding.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <Button size="lg" asChild>
@@ -21,7 +21,7 @@ export function CTASection() {
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <a href="#workflow">View example workflow</a>
+                <a href="#workflow">View clinical workflow</a>
               </Button>
             </div>
           </div>
